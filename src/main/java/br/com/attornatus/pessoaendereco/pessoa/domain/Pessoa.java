@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,12 @@ public class Pessoa {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
+	
+	
+	public Pessoa(PessoaRequest pessoaRequest) {
+		this.nomePessoa = pessoaRequest.getNomePessoa();
+		this.dataNascimento = pessoaRequest.getDataNascimento();
+	}
+	
+	
 }
