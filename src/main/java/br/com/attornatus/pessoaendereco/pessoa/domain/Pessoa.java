@@ -1,4 +1,4 @@
-package br.com.attornatus.pessoaendereco.pessoa.application.api;
+package br.com.attornatus.pessoaendereco.pessoa.domain;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,5 +28,6 @@ public class Pessoa {
 	@NotBlank
 	private String nomePessoa;
 	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
 }
