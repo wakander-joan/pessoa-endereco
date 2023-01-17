@@ -1,5 +1,6 @@
 package br.com.attornatus.pessoaendereco.pessoa.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -23,4 +24,8 @@ public interface PessoaAPI {
 	@GetMapping(value = "/{idPessoa}")
 	@ResponseStatus (code = HttpStatus.OK)
 	PessoaDetalhadaResponse buscaPessoa(@PathVariable UUID idPessoa);
+	
+	@GetMapping
+	@ResponseStatus (code = HttpStatus.OK)
+	List <PessoaListResponse> buscarTodasPessoas();
 }

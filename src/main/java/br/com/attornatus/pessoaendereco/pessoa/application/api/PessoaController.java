@@ -1,5 +1,6 @@
 package br.com.attornatus.pessoaendereco.pessoa.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -30,6 +31,14 @@ public class PessoaController implements PessoaAPI {
 		PessoaDetalhadaResponse pessoa = pessoaService.buscaPessoa(idPessoa);
 		log.info("[finaliza] PessoaController - buscaPessoaAtravesId");
 		return pessoa;
+	}
+
+	@Override
+	public List<PessoaListResponse> buscarTodasPessoas() {
+		log.info("[inicia] PessoaController - buscarTodasPessoas");
+		List<PessoaListResponse> lista = pessoaService.buscaTodasPessoas();
+		log.info("[finaliza] PessoaController - buscarTodasPessoas");
+		return null;
 	}
 
 }
