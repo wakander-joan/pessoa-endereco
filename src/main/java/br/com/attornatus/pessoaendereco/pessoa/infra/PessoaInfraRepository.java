@@ -1,5 +1,6 @@
 package br.com.attornatus.pessoaendereco.pessoa.infra;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,13 @@ public class PessoaInfraRepository implements PessoaRepository {
 					.orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND, "Pessoa não encontrada"));
 		log.info("[finaliza] PessoaInfraRepository - buscaPessoa");
 		return pessoa;
+	}
+	@Override
+	public List<Pessoa> buscaTodasPessoas() {
+		log.info("[inicia] PessoaInfraRepository - buscaTodasPessoas");
+		 List<Pessoa> todasPessoas = pessoaSpringDataJPARepository.findAll();
+		log.info("[finaliza] PessoaInfraRepository - buscaTodasPessoas");
+		return todasPessoas;
 	}
 
 }

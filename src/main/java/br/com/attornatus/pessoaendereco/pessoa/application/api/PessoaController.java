@@ -38,7 +38,7 @@ public class PessoaController implements PessoaAPI {
 		log.info("[inicia] PessoaController - buscarTodasPessoas");
 		List<PessoaListResponse> lista = pessoaService.buscaTodasPessoas();
 		log.info("[finaliza] PessoaController - buscarTodasPessoas");
-		return null;
+		return lista;
 	}
 
 }
