@@ -1,9 +1,12 @@
 package br.com.attornatus.pessoaendereco.pessoa.application.service;
 
+import java.util.UUID;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaDetalhadaResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.repository.PessoaRepository;
@@ -23,6 +26,13 @@ public class PessoaApplicationService implements PessoaService {
 		Pessoa pessoa = pessoaRepository.salva(new Pessoa(pessoaRequeste));
 		log.info("[finaliza] PessoaApplicationService - criaPessoa");
 		return PessoaResponse.builder().idPessoa(pessoa.getIdPessoa()).build();
+	}
+
+	@Override
+	public PessoaDetalhadaResponse buscaPessoa(UUID idPessoa) {
+		log.info("[inicia] PessoaApplicationService - buscaPessoa");
+		log.info("[finaliza] PessoaApplicationService - buscaPessoa");
+		return null;
 	}
 
 }
