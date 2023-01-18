@@ -26,9 +26,9 @@ public class PessoaController implements PessoaAPI {
 	}
 
 	@Override
-	public PessoaDetalhadaResponse buscaPessoa(UUID idPessoa) {
+	public PessoaDetalhadaResponse buscaPessoaPorId(UUID idPessoa) {
 		log.info("[inicia] PessoaController - buscaPessoaAtravesId");
-		PessoaDetalhadaResponse pessoa = pessoaService.buscaPessoa(idPessoa);
+		PessoaDetalhadaResponse pessoa = pessoaService.buscaPessoaPorId(idPessoa);
 		log.info("[finaliza] PessoaController - buscaPessoaAtravesId");
 		return pessoa;
 	}
@@ -39,6 +39,13 @@ public class PessoaController implements PessoaAPI {
 		List<PessoaListResponse> lista = pessoaService.buscaTodasPessoas();
 		log.info("[finaliza] PessoaController - buscarTodasPessoas");
 		return lista;
+	}
+
+	@Override
+	public void deletaPessoaPorId(UUID idPessoa) {
+		log.info("[inicia] PessoaController - deletaPessoaPorId");
+		pessoaService.deletaPessoaPorId(idPessoa);
+		log.info("[finaliza] PessoaController - deletaPessoaPorId");	
 	}
 
 }

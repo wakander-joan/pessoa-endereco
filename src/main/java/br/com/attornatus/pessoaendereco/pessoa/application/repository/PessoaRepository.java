@@ -7,6 +7,6 @@ import br.com.attornatus.pessoaendereco.pessoa.domain.Pessoa;
 
 public interface PessoaRepository {
 	Pessoa salva(Pessoa pessoa);
-	Pessoa buscaPessoa(UUID idPessoa);
+	Pessoa buscaPessoaPorId(UUID idPessoa);
 	List<Pessoa> buscaTodasPessoas();
 }

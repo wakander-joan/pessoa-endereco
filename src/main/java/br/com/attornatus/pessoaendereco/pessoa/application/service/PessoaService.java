@@ -12,6 +12,7 @@ import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaResponse;
 
 public interface PessoaService {
 	PessoaResponse criarPessoa(@Valid PessoaRequest pessoaRequeste);
-	PessoaDetalhadaResponse buscaPessoa(UUID idPessoa);
+	PessoaDetalhadaResponse buscaPessoaPorId(UUID idPessoa);
 	List<PessoaListResponse> buscaTodasPessoas();
+	void deletaPessoaPorId(UUID idPessoa);
 }

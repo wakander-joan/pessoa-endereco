@@ -31,9 +31,9 @@ public class PessoaApplicationService implements PessoaService {
 	}
 
 	@Override
-	public PessoaDetalhadaResponse buscaPessoa(UUID idPessoa) {
+	public PessoaDetalhadaResponse buscaPessoaPorId(UUID idPessoa) {
 		log.info("[inicia] PessoaApplicationService - buscaPessoa");
-		Pessoa pessoa = pessoaRepository.buscaPessoa(idPessoa);
+		Pessoa pessoa = pessoaRepository.buscaPessoaPorId(idPessoa);
 		log.info("[finaliza] PessoaApplicationService - buscaPessoa");
 		return new PessoaDetalhadaResponse(pessoa);
 	}
@@ -44,6 +44,14 @@ public class PessoaApplicationService implements PessoaService {
 		List<Pessoa> pessoas = pessoaRepository.buscaTodasPessoas();
 		log.info("[finaliza] PessoaApplicationService - buscaTodasPessoas");
 		return PessoaListResponse.converte(pessoas);
+	}
+
+	@Override
+	public void deletaPessoaPorId(UUID idPessoa) {
+		log.info("[inicia] PessoaApplicationService - deletaPessoaPorId");
+		
+		log.info("[finaliza] PessoaApplicationService - deletaPessoaPorId");
+		
 	}
 
 }
