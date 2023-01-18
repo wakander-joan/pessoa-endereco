@@ -8,11 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -36,6 +38,12 @@ public class Pessoa {
 	public Pessoa(PessoaRequest pessoaRequest) {
 		this.nomePessoa = pessoaRequest.getNomePessoa();
 		this.dataNascimento = pessoaRequest.getDataNascimento();
+	}
+
+
+	public void edita(@Valid PessoaAlteracaoRequest pessoaAlteracaoRequest) {
+		this.nomePessoa = pessoaAlteracaoRequest.getNomePessoa();
+		this.dataNascimento = pessoaAlteracaoRequest.getDataNascimento();
 	}
 	
 	

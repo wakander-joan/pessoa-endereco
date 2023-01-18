@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaDetalhadaResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaListResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
@@ -52,6 +53,15 @@ public class PessoaApplicationService implements PessoaService {
 		pessoaRepository.buscaPessoaPorId(idPessoa);
 		pessoaRepository.deletaPessoaPorId(idPessoa);
 		log.info("[finaliza] PessoaApplicationService - deletaPessoaPorId");
+	}
+
+	@Override
+	public void editaPessoaPorId(UUID idPessoa, @Valid PessoaAlteracaoRequest pessoaAlteracaoRequest) {
+		log.info("[inicia] PessoaApplicationService - editaPessoaPorId");
+		Pessoa pessoa = pessoaRepository.buscaPessoaPorId(idPessoa);
+		pessoa.edita(pessoaAlteracaoRequest);
+		pessoaRepository.salva(pessoa);
+		log.info("[finaliza] PessoaApplicationService - editaPessoaPorId");		
 	}
 
 }

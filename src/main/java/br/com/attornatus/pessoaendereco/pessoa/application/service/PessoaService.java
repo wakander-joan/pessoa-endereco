@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaDetalhadaResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaListResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaRequest;
@@ -15,4 +16,5 @@ public interface PessoaService {
 	PessoaDetalhadaResponse buscaPessoaPorId(UUID idPessoa);
 	List<PessoaListResponse> buscaTodasPessoas();
 	void deletaPessoaPorId(UUID idPessoa);
+	void editaPessoaPorId(UUID idPessoa, @Valid PessoaAlteracaoRequest pessoaAlteracaoRequest);
 }
