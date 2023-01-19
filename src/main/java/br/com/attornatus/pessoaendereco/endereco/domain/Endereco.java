@@ -1,5 +1,7 @@
 package br.com.attornatus.pessoaendereco.endereco.domain;
 
+import static br.com.attornatus.pessoaendereco.endereco.domain.Prioridade.PRINCIPAL;
+
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -8,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -23,15 +24,16 @@ public class Endereco {
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idEndereco;
 	@NotBlank
+	private UUID idPessoa;
+	@NotBlank
 	private String logradouro;
 	@NotBlank
 	private String cep;
 	@NotBlank
-	private int numero;
+	private String numero;
 	@NotBlank
 	private String cidade;
-	@NotNull
-	private Prioridade Prioridade;
+	private Prioridade Prioridade = PRINCIPAL;
 }
 
 
