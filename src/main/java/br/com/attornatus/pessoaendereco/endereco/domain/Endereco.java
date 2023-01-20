@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import br.com.attornatus.pessoaendereco.endereco.application.api.EnderecoRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +34,17 @@ public class Endereco {
 	private String numero;
 	@NotBlank
 	private String cidade;
-	private Prioridade Prioridade = PRINCIPAL;
+	private Prioridade Prioridade = PRINCIPAL ;
+	
+	public Endereco(UUID idPessoa ,EnderecoRequest enderecoRequest) {
+		this.idPessoa = idPessoa;
+		this.logradouro = enderecoRequest.getLogradouro();
+		this.cep = enderecoRequest.getCep();
+		this.numero = enderecoRequest.getNumero();
+		this.cidade = enderecoRequest.getCidade();
+	}
+	
+	
 }
 
 

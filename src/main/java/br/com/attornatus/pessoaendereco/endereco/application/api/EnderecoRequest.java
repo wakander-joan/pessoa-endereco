@@ -2,7 +2,6 @@ package br.com.attornatus.pessoaendereco.endereco.application.api;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.attornatus.pessoaendereco.endereco.domain.Prioridade;
 import lombok.Builder;
 import lombok.Value;
 
@@ -17,6 +16,4 @@ public class EnderecoRequest {
 	private String numero;
 	@NotBlank
 	private String cidade;
-	@SuppressWarnings("unused")
-	private Prioridade Prioridade;
 }
