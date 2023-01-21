@@ -32,4 +32,10 @@ public class EnderecoController implements EnderecoAPI {
 		log.info("[finaliza] EnderecoController  - buscaEnderecosDaPessoa");
 		return enderecos;
 	}
+
+	@Override
+	public void priorizaEndereco(UUID idPessoa, UUID idEndereco) {
+		log.info("[inicia] EnderecoController  - priorizaEndereco");
+		log.info("[finaliza] EnderecoController  - priorizaEndereco");
+	}
 }
