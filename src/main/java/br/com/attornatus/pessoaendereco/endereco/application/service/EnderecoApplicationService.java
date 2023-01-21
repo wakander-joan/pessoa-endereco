@@ -37,5 +37,21 @@ public class EnderecoApplicationService implements EnderecoService {
 		log.info("[finaliza] EnderecoApplicationService - buscaEnderecosDaPessoa");
 		return EnderecoListResponse.converte(enderecos);
 	}
+	@Override
+	public void priorizaEndereco(UUID idPessoa, UUID idEndereco) {
+		log.info("[inicia] EnderecoApplicationService - priorizaEndereco");
+		pessoaRepository.buscaPessoaPorId(idPessoa);
+		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa);
+		for(Endereco endereco : enderecos)
+		{
+			if(endereco.isPrincipal() == true) {
+				endereco.desprioriza();
+			}
+		}
+		Endereco endereco = enderecoRepository.buscaEndereco(idEndereco);
+		endereco.prioriza();
+		enderecoRepository.salva(endereco);
+		log.info("[finaliza] EnderecoApplicationService - priorizaEndereco");
+	}
 
 }

@@ -12,4 +12,5 @@ import br.com.attornatus.pessoaendereco.endereco.application.api.EnderecoRespons
 public interface EnderecoService {
 	EnderecoResponse criaEndereco(UUID dPessoa,@Valid EnderecoRequest enderecoRequest);
 	List<EnderecoListResponse> buscaEnderecosDaPessoa(UUID idPessoa);
+	void priorizaEndereco(UUID idPessoa, UUID idEndereco);
 }

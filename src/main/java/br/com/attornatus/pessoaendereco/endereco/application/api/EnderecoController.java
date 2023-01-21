@@ -36,6 +36,7 @@ public class EnderecoController implements EnderecoAPI {
 	@Override
 	public void priorizaEndereco(UUID idPessoa, UUID idEndereco) {
 		log.info("[inicia] EnderecoController  - priorizaEndereco");
+		enderecoService.priorizaEndereco(idPessoa, idEndereco);
 		log.info("[finaliza] EnderecoController  - priorizaEndereco");
 	}
 }

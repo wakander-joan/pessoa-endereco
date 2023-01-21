@@ -36,6 +36,7 @@ public class Endereco {
 	@NotBlank
 	private String cidade;
 	private boolean Principal = false;
+
 	
 	public Endereco(UUID idPessoa,@Valid EnderecoRequest enderecoRequest) {
 		this.idPessoa = idPessoa;
@@ -43,6 +44,18 @@ public class Endereco {
 		this.cep = enderecoRequest.getCep();
 		this.numero = enderecoRequest.getNumero();
 		this.cidade = enderecoRequest.getCidade();
+	}
+
+
+	public void desprioriza() {
+		this.Principal = false;
+		
+	}
+
+
+	public void prioriza() {
+		this.Principal = true;
+		
 	}
 	
 	

@@ -5,8 +5,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.attornatus.pessoaendereco.endereco.domain.Endereco;
+import lombok.Getter;
 import lombok.Value;
-
+@Getter
 @Value
 public class EnderecoListResponse {
 	private UUID idEndereco;
@@ -32,4 +33,5 @@ public class EnderecoListResponse {
 		this.cidade = enderecos.getCidade();
 		this.Principal = enderecos.isPrincipal();
 	}
+
 }

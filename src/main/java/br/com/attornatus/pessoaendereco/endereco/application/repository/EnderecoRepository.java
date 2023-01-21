@@ -9,4 +9,5 @@ import br.com.attornatus.pessoaendereco.endereco.domain.Endereco;
 public interface EnderecoRepository {
 	Endereco salva(Endereco endereco);
 	List<Endereco> buscaEnderecosDaPessoa(UUID idPessoa);
+	Endereco buscaEndereco(UUID idEndereco);
 }
