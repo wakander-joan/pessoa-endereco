@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "180e95de-bf87-4ea8-b1c5-6844df1d6c83",
+		"name": "Pessoa-Endereço",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21909894"
+	},
+	"item": [
+		{
+			"name": "Cria Pessoa - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomePessoa\":\"Joan\",\r\n    \"dataNascimento\":\"2000-02-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/pessoa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"pessoa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria Endereco - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"logradouro\":\"Rua P\",\r\n    \"cep\":\"45826-804\",\r\n    \"numero\":\"92\",\r\n    \"cidade\":\"Eunapolis\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/endereco/criaEndereco/37b7e961-777a-4d64-83c2-89a22c6e5c68",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"endereco",
+						"criaEndereco",
+						"37b7e961-777a-4d64-83c2-89a22c6e5c68"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prioriza Endereco - POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPessoa\":\"792aafac-bcde-4059-af22-55baa20f2719\",\r\n    \"logradouro\":\"Rua I\",\r\n    \"cep\":\"45826-804\",\r\n    \"numero\":\"390\",\r\n    \"cidade\":\"Eunapolis\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/endereco/de89ce04-da18-4912-a373-1f8a117bf1f0?idPessoa=101e10b2-2c47-4a7e-97b0-b9474ecd44a0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"endereco",
+						"de89ce04-da18-4912-a373-1f8a117bf1f0"
+					],
+					"query": [
+						{
+							"key": "idPessoa",
+							"value": "101e10b2-2c47-4a7e-97b0-b9474ecd44a0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca Enderecos da Pessoa - POST",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"logradouro\":\"Rua K\",\r\n    \"cep\":\"45826-804\",\r\n    \"numero\":\"390\",\r\n    \"cidade\":\"Eunapolis\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/endereco/busca-enderecos/a1f92161-99e4-4afc-93d1-9a6b02d6aaee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"endereco",
+						"busca-enderecos",
+						"a1f92161-99e4-4afc-93d1-9a6b02d6aaee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edita Pessoa - PATCH",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomePessoa\":\"Arya editada 3\",\r\n    \"dataNascimento\":\"2023-02-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/pessoa/ef045b71-4f23-4b7c-8a84-dfc400fe20a2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"pessoa",
+						"ef045b71-4f23-4b7c-8a84-dfc400fe20a2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca Pessoa - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/pessoa/d758e9cb-c2b7-4b79-af3e-c4cd6c5ff2d1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"pessoa",
+						"d758e9cb-c2b7-4b79-af3e-c4cd6c5ff2d1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca Todas Pessoa - GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/pessoa/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"pessoa",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta Pessoa - DELETE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pessoa-endereco/api/v1/pessoa/37b7e961-777a-4d64-83c2-89a22c6e5c68",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pessoa-endereco",
+						"api",
+						"v1",
+						"pessoa",
+						"37b7e961-777a-4d64-83c2-89a22c6e5c68"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
