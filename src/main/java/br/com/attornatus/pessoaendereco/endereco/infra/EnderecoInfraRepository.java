@@ -42,4 +42,12 @@ public class EnderecoInfraRepository implements EnderecoRepository {
 		log.info("[finaliza] EnderecoInfraRepository  - buscaEndereco");
 		return endereco;
 	}
+
+	@Override
+	public void deletaEndereco(UUID id) {
+		log.info("[inicia] EnderecoInfraRepository  - deletaEndereco");
+		enderecoSpringDataJPARepository.deleteById(id);
+		log.info("[finaliza] EnderecoInfraRepository  - deletaEndereco");
+	}
+
 }

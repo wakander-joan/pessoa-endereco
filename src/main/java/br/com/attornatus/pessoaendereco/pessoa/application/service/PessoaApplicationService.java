@@ -7,6 +7,8 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.attornatus.pessoaendereco.endereco.application.repository.EnderecoRepository;
+import br.com.attornatus.pessoaendereco.endereco.domain.Endereco;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaDetalhadaResponse;
 import br.com.attornatus.pessoaendereco.pessoa.application.api.PessoaListResponse;
@@ -22,7 +24,7 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class PessoaApplicationService implements PessoaService {
 	private final PessoaRepository pessoaRepository;
-	
+	private final EnderecoRepository enderecoRepository;
 	@Override
 	public PessoaResponse criarPessoa(@Valid PessoaRequest pessoaRequeste) {
 		log.info("[inicia] PessoaApplicationService - criaPessoa");
@@ -51,6 +53,11 @@ public class PessoaApplicationService implements PessoaService {
 	public void deletaPessoaPorId(UUID idPessoa) {
 		log.info("[inicia] PessoaApplicationService - deletaPessoaPorId");
 		pessoaRepository.buscaPessoaPorId(idPessoa);
+		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa);
+		for(Endereco endereco : enderecos) {
+			UUID id = endereco.getIdEndereco();
+			enderecoRepository.deletaEndereco(id);
+		}
 		pessoaRepository.deletaPessoaPorId(idPessoa);
 		log.info("[finaliza] PessoaApplicationService - deletaPessoaPorId");
 	}

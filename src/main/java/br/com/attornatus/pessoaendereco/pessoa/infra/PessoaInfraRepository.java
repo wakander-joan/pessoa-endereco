@@ -45,7 +45,6 @@ public class PessoaInfraRepository implements PessoaRepository {
 		log.info("[inicia] PessoaInfraRepository - deletaPessoaPorId");
 		pessoaSpringDataJPARepository.deleteById(idPessoa);
 		log.info("[finaliza] PessoaInfraRepository - deletaPessoaPorId");
-		
 	}
 
 }
