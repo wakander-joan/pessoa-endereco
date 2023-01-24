@@ -45,7 +45,7 @@ public class PessoaController implements PessoaAPI {
 	public void deletaPessoaPorId(UUID idPessoa) {
 		log.info("[inicia] PessoaController - deletaPessoaPorId");
 		pessoaService.deletaPessoaPorId(idPessoa);
-		log.info("[finaliza] PessoaController - deletaPessoaPorId");	
+		log.info("[finaliza] PessoaController - deletaPessoaPorId");
 	}
 
 	@Override
@@ -54,5 +54,4 @@ public class PessoaController implements PessoaAPI {
 		pessoaService.editaPessoaPorId(idPessoa, pessoaAlteracaoRequest);
 		log.info("[finaliza] PessoaController - editaPessoaPorId");
 	}
-
 }

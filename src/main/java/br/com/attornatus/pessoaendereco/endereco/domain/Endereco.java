@@ -37,8 +37,7 @@ public class Endereco {
 	private String cidade;
 	private boolean Principal = false;
 
-	
-	public Endereco(UUID idPessoa,@Valid EnderecoRequest enderecoRequest) {
+	public Endereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
 		this.idPessoa = idPessoa;
 		this.logradouro = enderecoRequest.getLogradouro();
 		this.cep = enderecoRequest.getCep();
@@ -46,26 +45,11 @@ public class Endereco {
 		this.cidade = enderecoRequest.getCidade();
 	}
 
-
 	public void desprioriza() {
 		this.Principal = false;
-		
 	}
-
 
 	public void prioriza() {
 		this.Principal = true;
-		
 	}
-	
-	
 }
-
-
-
-
-
-
-
-
-

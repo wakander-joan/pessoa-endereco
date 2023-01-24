@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.attornatus.pessoaendereco.endereco.domain.Endereco;
 
-public interface EnderecoSpringDataJPARepository extends JpaRepository<Endereco, UUID>{
+public interface EnderecoSpringDataJPARepository extends JpaRepository<Endereco, UUID> {
 	List<Endereco> findAllByIdPessoa(UUID idPessoa);
 }

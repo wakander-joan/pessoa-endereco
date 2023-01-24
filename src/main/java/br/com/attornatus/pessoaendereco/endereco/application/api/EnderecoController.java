@@ -18,9 +18,9 @@ public class EnderecoController implements EnderecoAPI {
 	private final EnderecoService enderecoService;
 
 	@Override
-	public EnderecoResponse criaEndereco(UUID idPessoa ,@Valid EnderecoRequest enderecoRequest) {
+	public EnderecoResponse criaEndereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
 		log.info("[inicia] EnderecoController  - criaEndereco");
-		EnderecoResponse endereco = enderecoService.criaEndereco(idPessoa , enderecoRequest);
+		EnderecoResponse endereco = enderecoService.criaEndereco(idPessoa, enderecoRequest);
 		log.info("[finaliza] EnderecoController  - criaEndereco");
 		return endereco;
 	}

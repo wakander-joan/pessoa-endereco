@@ -11,12 +11,10 @@ public class PessoaDetalhadaResponse {
 	private UUID idPessoa;
 	private String nomePessoa;
 	private LocalDate dataNascimento;
-	
+
 	public PessoaDetalhadaResponse(Pessoa pessoa) {
 		this.idPessoa = pessoa.getIdPessoa();
 		this.nomePessoa = pessoa.getNomePessoa();
 		this.dataNascimento = pessoa.getDataNascimento();
 	}
-	
-	
 }

@@ -18,15 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1/endereco")
 public interface EnderecoAPI {
+
 	@PostMapping("/criaEndereco/{idPessoa}")
-	@ResponseStatus (code = HttpStatus.CREATED)
-	EnderecoResponse criaEndereco (@PathVariable UUID idPessoa,@Valid @RequestBody EnderecoRequest enderecoRequest);
-	
+	@ResponseStatus(code = HttpStatus.CREATED)
+	EnderecoResponse criaEndereco(@PathVariable UUID idPessoa, @Valid @RequestBody EnderecoRequest enderecoRequest);
+
 	@GetMapping("/busca-enderecos/{idPessoa}")
-    @ResponseStatus(code = HttpStatus.OK)
-    List <EnderecoListResponse> buscaEnderecosDaPessoa (@PathVariable UUID idPessoa);
-	
+	@ResponseStatus(code = HttpStatus.OK)
+	List<EnderecoListResponse> buscaEnderecosDaPessoa(@PathVariable UUID idPessoa);
+
 	@PostMapping("/{idEndereco}")
-    @ResponseStatus(code = HttpStatus.OK)
-    void priorizaEndereco(@RequestParam UUID idPessoa, @PathVariable UUID idEndereco);
+	@ResponseStatus(code = HttpStatus.OK)
+	void priorizaEndereco(@RequestParam UUID idPessoa, @PathVariable UUID idEndereco);
 }

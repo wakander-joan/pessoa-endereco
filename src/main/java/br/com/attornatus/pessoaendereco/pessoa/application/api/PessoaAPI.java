@@ -20,23 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/pessoa")
 public interface PessoaAPI {
 	@PostMapping
-	@ResponseStatus (code = HttpStatus.CREATED)
-	PessoaResponse criaPessoa (@Valid  @RequestBody PessoaRequest pessoaRequeste);
-	
+	@ResponseStatus(code = HttpStatus.CREATED)
+	PessoaResponse criaPessoa(@Valid @RequestBody PessoaRequest pessoaRequeste);
+
 	@GetMapping(value = "/{idPessoa}")
-	@ResponseStatus (code = HttpStatus.OK)
+	@ResponseStatus(code = HttpStatus.OK)
 	PessoaDetalhadaResponse buscaPessoaPorId(@PathVariable UUID idPessoa);
-	
+
 	@GetMapping
-	@ResponseStatus (code = HttpStatus.OK)
-	List <PessoaListResponse> buscarTodasPessoas();
-	
+	@ResponseStatus(code = HttpStatus.OK)
+	List<PessoaListResponse> buscarTodasPessoas();
+
 	@DeleteMapping(value = "/{idPessoa}")
-	@ResponseStatus (code = HttpStatus.NO_CONTENT)
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaPessoaPorId(@PathVariable UUID idPessoa);
-	
+
 	@PatchMapping(value = "/{idPessoa}")
-	@ResponseStatus (code = HttpStatus.CREATED)
-	void editaPessoaPorId (@PathVariable UUID idPessoa,@Valid 
-						   @RequestBody PessoaAlteracaoRequest pessoaAlteracaoRequest );
+	@ResponseStatus(code = HttpStatus.CREATED)
+	void editaPessoaPorId(@PathVariable UUID idPessoa,
+						@Valid @RequestBody PessoaAlteracaoRequest pessoaAlteracaoRequest);
 }

@@ -22,29 +22,31 @@ import lombok.extern.log4j.Log4j2;
 public class EnderecoApplicationService implements EnderecoService {
 	private final EnderecoRepository enderecoRepository;
 	private final PessoaRepository pessoaRepository;
+
 	@Override
-	public EnderecoResponse criaEndereco(UUID idPessoa,@Valid EnderecoRequest enderecoRequest) {
+	public EnderecoResponse criaEndereco(UUID idPessoa, @Valid EnderecoRequest enderecoRequest) {
 		log.info("[inicia] EnderecoApplicationService - criaEndereco");
 		pessoaRepository.buscaPessoaPorId(idPessoa);
 		Endereco endereco = enderecoRepository.salva(new Endereco(idPessoa, enderecoRequest));
 		log.info("[finaliza] EnderecoApplicationService - criaEndereco");
-		return EnderecoResponse.builder().idEndereco( endereco.getIdEndereco()).build();
+		return EnderecoResponse.builder().idEndereco(endereco.getIdEndereco()).build();
 	}
+
 	@Override
 	public List<EnderecoListResponse> buscaEnderecosDaPessoa(UUID idPessoa) {
 		log.info("[inicia] EnderecoApplicationService - buscaEnderecosDaPessoa");
-		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa); 
+		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa);
 		log.info("[finaliza] EnderecoApplicationService - buscaEnderecosDaPessoa");
 		return EnderecoListResponse.converte(enderecos);
 	}
+
 	@Override
 	public void priorizaEndereco(UUID idPessoa, UUID idEndereco) {
 		log.info("[inicia] EnderecoApplicationService - priorizaEndereco");
 		pessoaRepository.buscaPessoaPorId(idPessoa);
 		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa);
-		for(Endereco endereco : enderecos)
-		{
-			if(endereco.isPrincipal() == true) {
+		for (Endereco endereco : enderecos) {
+			if (endereco.isPrincipal() == true) {
 				endereco.desprioriza();
 			}
 		}
@@ -53,5 +55,4 @@ public class EnderecoApplicationService implements EnderecoService {
 		enderecoRepository.salva(endereco);
 		log.info("[finaliza] EnderecoApplicationService - priorizaEndereco");
 	}
-
 }

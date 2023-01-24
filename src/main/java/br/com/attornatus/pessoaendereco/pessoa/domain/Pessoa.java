@@ -33,18 +33,14 @@ public class Pessoa {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
-	
-	
+
 	public Pessoa(PessoaRequest pessoaRequest) {
 		this.nomePessoa = pessoaRequest.getNomePessoa();
 		this.dataNascimento = pessoaRequest.getDataNascimento();
 	}
 
-
 	public void edita(@Valid PessoaAlteracaoRequest pessoaAlteracaoRequest) {
 		this.nomePessoa = pessoaAlteracaoRequest.getNomePessoa();
 		this.dataNascimento = pessoaAlteracaoRequest.getDataNascimento();
 	}
-	
-	
 }

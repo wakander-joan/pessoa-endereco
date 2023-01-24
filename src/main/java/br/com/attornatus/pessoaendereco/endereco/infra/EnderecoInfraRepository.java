@@ -14,10 +14,10 @@ import lombok.extern.log4j.Log4j2;
 
 @Repository
 @RequiredArgsConstructor
-@Log4j2	
+@Log4j2
 public class EnderecoInfraRepository implements EnderecoRepository {
 	private final EnderecoSpringDataJPARepository enderecoSpringDataJPARepository;
-	
+
 	@Override
 	public Endereco salva(Endereco enderecoCriado) {
 		log.info("[inicia] EnderecoInfraRepository  - salva");
@@ -38,7 +38,7 @@ public class EnderecoInfraRepository implements EnderecoRepository {
 	public Endereco buscaEndereco(UUID idEndereco) {
 		log.info("[inicia] EnderecoInfraRepository  - buscaEndereco");
 		Endereco endereco = enderecoSpringDataJPARepository.findById(idEndereco)
-				.orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND, "Pessoa não encontrada"));
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Pessoa não encontrada"));
 		log.info("[finaliza] EnderecoInfraRepository  - buscaEndereco");
 		return endereco;
 	}
@@ -49,5 +49,4 @@ public class EnderecoInfraRepository implements EnderecoRepository {
 		enderecoSpringDataJPARepository.deleteById(id);
 		log.info("[finaliza] EnderecoInfraRepository  - deletaEndereco");
 	}
-
 }

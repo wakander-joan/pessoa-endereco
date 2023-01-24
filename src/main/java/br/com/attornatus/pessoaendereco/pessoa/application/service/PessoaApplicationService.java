@@ -25,6 +25,7 @@ import lombok.extern.log4j.Log4j2;
 public class PessoaApplicationService implements PessoaService {
 	private final PessoaRepository pessoaRepository;
 	private final EnderecoRepository enderecoRepository;
+
 	@Override
 	public PessoaResponse criarPessoa(@Valid PessoaRequest pessoaRequeste) {
 		log.info("[inicia] PessoaApplicationService - criaPessoa");
@@ -54,7 +55,7 @@ public class PessoaApplicationService implements PessoaService {
 		log.info("[inicia] PessoaApplicationService - deletaPessoaPorId");
 		pessoaRepository.buscaPessoaPorId(idPessoa);
 		List<Endereco> enderecos = enderecoRepository.buscaEnderecosDaPessoa(idPessoa);
-		for(Endereco endereco : enderecos) {
+		for (Endereco endereco : enderecos) {
 			UUID id = endereco.getIdEndereco();
 			enderecoRepository.deletaEndereco(id);
 		}
@@ -68,7 +69,6 @@ public class PessoaApplicationService implements PessoaService {
 		Pessoa pessoa = pessoaRepository.buscaPessoaPorId(idPessoa);
 		pessoa.edita(pessoaAlteracaoRequest);
 		pessoaRepository.salva(pessoa);
-		log.info("[finaliza] PessoaApplicationService - editaPessoaPorId");		
+		log.info("[finaliza] PessoaApplicationService - editaPessoaPorId");
 	}
-
 }

@@ -13,7 +13,7 @@ public class PessoaListResponse {
 	private UUID idPessoa;
 	private String nomePessoa;
 	private LocalDate dataNascimento;
-	
+
 	public static List<PessoaListResponse> converte(List<Pessoa> pessoa) {
 		return pessoa.stream().map(c -> new PessoaListResponse(c)).collect(Collectors.toList());
 	}
@@ -24,6 +24,4 @@ public class PessoaListResponse {
 		this.nomePessoa = pessoa.getNomePessoa();
 		this.dataNascimento = pessoa.getDataNascimento();
 	}
-
-	
 }
